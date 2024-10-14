@@ -23,7 +23,7 @@ extension W3MJSONRPC {
                 gasLimit: gasLimit,
                 chainId: chainId
             )
-        case let .eth_sendTransaction(from, to, value, data, nonce, _, gasPrice, maxFeePerGas, maxPriorityFeePerGas, gasLimit, chainId):
+        case let .eth_sendTransaction(from, to, value, data, nonce, _, gasPrice, maxFeePerGas, maxPriorityFeePerGas, gasLimit, chainId, actionSource):
             return .eth_sendTransaction(
                 fromAddress: from,
                 toAddress: to,
@@ -34,7 +34,8 @@ extension W3MJSONRPC {
                 maxFeePerGas: maxFeePerGas,
                 maxPriorityFeePerGas: maxPriorityFeePerGas,
                 gasLimit: gasLimit,
-                chainId: chainId
+                chainId: chainId,
+                actionSource: actionSource != nil ? .init(url: actionSource!) : nil
             )
         case let .wallet_switchEthereumChain(chainId):
             return .wallet_switchEthereumChain(chainId: chainId)
