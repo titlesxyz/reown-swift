@@ -32,7 +32,8 @@ public enum W3MJSONRPC: Codable {
         maxFeePerGas: String?,
         maxPriorityFeePerGas: String?,
         gasLimit: String?,
-        chainId: String
+        chainId: String,
+        actionSource: String?
     )
     
     case wallet_switchEthereumChain(
